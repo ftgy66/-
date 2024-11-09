@@ -1,0 +1,26 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract LightControl {
+    // 灯光状态，true表示开，false表示关
+    bool public isLightOn;
+
+    // 事件，用于通知灯光状态变化
+    event LightStatusChanged(bool isOn);
+
+    // 构造函数，初始化灯光状态为关
+    constructor() {
+        isLightOn = false;
+    }
+
+    // 开灯
+    function turnOn() public {
+        isLightOn = true;
+        emit LightStatusChanged(isLightOn);
+    }
+
+    // 关灯
+    function turnOff() public {
+        isLightOn = false;
+        emit LightStatusChanged(isLightOn);
+    }
